@@ -1,15 +1,12 @@
-import React from 'react'
-import Navbar from './Component/Navbar'
-import Content from './Component/Content'
-import Footer from './Component/Footer'
+import React from "react";
 
+// import './App.css'
+import Home from "./Components/Home";
 
-export default function App() {
-  return(
-    <>
-      <Navbar navContent='nav content'></Navbar>
-      <Content bodyContent='body content'></Content>
-      <Footer footerContent='footer content'></Footer>
-    </>
-  )
+function App() {
+  return (
+    <Home/>
+  );
 }
+
+export default App;
