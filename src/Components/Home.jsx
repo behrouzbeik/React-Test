@@ -4,24 +4,27 @@ import Login from "./Login/Login";
 
 export default class Home extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state={
-            islogin:false
-        }
+            islogin:false,
+            user:'user1',
+            pass:'pass1',
+        };
+        this.handelLogin = this.handelLogin.bind(this);
     }
-    handelLogin(){
-        this.setState((state) => {
-            console.log(this.state.islogin)
-            return {
-                islogin: !state.islogin,
-            };
-        })
+    handelLogin(user, pass){
+        this.setState({
+            islogin: user==this.state.user ? pass==this.state.pass ? true : false : false
+        })   
     }
 
   render() {
-    const showPage = this.state.islogin ? <Blog/> : <Login onClick={this.handelLogin}/>
+    const showPage = this.state.islogin ? <Blog/> : <Login handelLogin={this.handelLogin}/>
     return (
-        showPage
+        <>
+            {showPage}
+        </>
+        
     )
   }
 }
